@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Profiles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-light text-dark">
+    <div class="container mt-5">
+        <h1 class="text-center">Character Profiles</h1>
+        <div id="character-container"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $.getJSON("character.json", function(data) {
+                let characters = data.characters;
+                let characterHtml = "";
+                
+                characters.forEach(character => {
+                    characterHtml += `
+                        <div class="card bg-white text-dark mt-4">
+                            <div class="card-body">
+                                <h3 class="card-title">${character.name}</h3>
+                                <p>${character.backstory}</p>
+                                <h5>Details:</h5>
+                                <ul class="list-group">
+                    `;
+                    
+                    for (let key in character.details) {
+                        characterHtml += `<li class='list-group-item'><strong>${key}:</strong> ${character.details[key]}</li>`;
+                    }
+                    
+                    characterHtml += `
+                                </ul>
+                                <h5 class="mt-3">Ask a Question:</h5>
+                                <input type="text" class="form-control question" placeholder="Type your question here...">
+                                <button class="btn btn-primary mt-2 ask-btn" data-name="${character.name}">Ask</button>
+                                <div class="alert alert-info mt-3 response" style="display: none;"></div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                $("#character-container").html(characterHtml);
+            });
+        });
+
+        $(document).on("click", ".ask-btn", function() {
+            let characterName = $(this).data("name");
+            let question = $(this).siblings(".question").val().toLowerCase();
+            let responseDiv = $(this).siblings(".response");
+            
+            $.getJSON("character_data.json", function(data) {
+                let character = data.characters.find(c => c.name === characterName);
+                let response = "I'm not sure about that, dearie.";
+                
+                if (character) {
+                    for (let clue of character.clues) {
+                        if (question.includes(clue.keyword)) {
+                            response = clue.response;
+                            break;
+                        }
+                    }
+                }
+                
+                responseDiv.text(response).show();
+            });
+        });
+    </script>
+</body>
+</html>

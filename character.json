@@ -1,0 +1,35 @@
+{
+    "characters": [
+        {
+            "name": "Mrs. Apricot",
+            "backstory": "Mrs. Apricot, once known as Professor Eleanor Apricot, was a renowned scientist specializing in bio-engineered fruits that could store and transmit data. She worked for a top-secret research facility but mysteriously retired early to open her cozy fruit shop in the heart of the virtual world. Although she appears to be just a friendly shopkeeper, many believe she holds secrets about past experiments, hidden technologies, and encrypted messages left behind by missing scientists.",
+            "details": {
+                "Occupation": "Former scientist, now fruit shop owner",
+                "Specialty": "Bio-engineered fruits and data encryption",
+                "Rumors": "Knows about a hidden digital vault and a lost AI"
+            },
+            "clues": [
+                {
+                    "keyword": "past",
+                    "response": "Ah, dearie, the past is like an old fruit—sometimes sweet, sometimes rotten. Let’s just say I worked where knowledge grew faster than we could harvest. If you seek the truth, start where numbers dance and logic reigns."
+                },
+                {
+                    "keyword": "missing scientists",
+                    "response": "Some trees bear fruit once and vanish. Others leave seeds behind. Follow the ones who left their mark in the archives of time, and you might just find what you're looking for."
+                },
+                {
+                    "keyword": "secret vault",
+                    "response": "Ah, the vault! Every fruit has a core, and every core has a key. But what if the key was not a thing, but a thought? Look beyond the physical, my dear."
+                },
+                {
+                    "keyword": "dangerous AI",
+                    "response": "Intelligence can be a gift or a curse. Some things were meant to be free, but others… well, they must sleep until the right mind awakens them."
+                },
+                {
+                    "keyword": "who are you",
+                    "response": "I am but an old woman selling fruit, aren’t I? But tell me, child, why does a simple fruit seller know so much about the past?"
+                }
+            ]
+        }
+    ]
+}
