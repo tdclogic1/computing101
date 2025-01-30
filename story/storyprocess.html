@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murder Mystery Game Storyboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .story-panel {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .evidence-item {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            display: inline-block;
+            border-radius: 4px;
+        }
+        .panel-preview {
+            height: 150px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Murder Mystery Game Storyboard</h1>
+        
+        <div class="row" id="storyboard-container">
+            <!-- Panels will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <script>
+        // Story data structure
+        const storyData = {
+            "game_title": "The Library Murder Mystery",
+            "game_description": "An interactive murder mystery game set in an old library",
+            "panels": [
+                {
+                    "id": 1,
+                    "title": "Crime Scene Discovery",
+                    "description": "Player discovers body in the library's rare book section",
+                    "gameplay_elements": [
+                        "Interactive environment scanning",
+                        "Initial evidence markers",
+                        "First responder dialogue"
+                    ],
+                    "required_actions": [
+                        "Photograph crime scene",
+                        "Initial walkthrough",
+                        "Secure the area"
+                    ],
+                    "available_tools": [
+                        "Camera",
+                        "Notepad",
+                        "Crime scene tape"
+                    ],
+                    "background_color": "#f8d7da"
+                },
+                {
+                    "id": 2,
+                    "title": "Evidence Collection",
+                    "description": "Interactive evidence gathering phase",
+                    "gameplay_elements": [
+                        "Magnifying glass tool",
+                        "Evidence bagging system",
+                        "Forensic tools"
+                    ],
+                    "evidence_types": [
+                        {
+                            "name": "Physical",
+                            "color": "#ffcccc"
+                        },
+                        {
+                            "name": "Documentary",
+                            "color": "#ccffcc"
+                        },
+                        {
+                            "name": "Digital",
+                            "color": "#cce5ff"
+                        }
+                    ],
+                    "background_color": "#e2efda"
+                },
+                {
+                    "id": 3,
+                    "title": "Witness Interview",
+                    "description": "Dialogue system with suspects and witnesses",
+                    "gameplay_elements": [
+                        "Branching dialogue system",
+                        "Character reaction monitoring",
+                        "Note-taking interface"
+                    ],
+                    "characters": [
+                        {
+                            "name": "Librarian",
+                            "suspicion_level": "medium",
+                            "key_information": true
+                        },
+                        {
+                            "name": "Student",
+                            "suspicion_level": "low",
+                            "key_information": false
+                        },
+                        {
+                            "name": "Security Guard",
+                            "suspicion_level": "high",
+                            "key_information": true
+                        }
+                    ],
+                    "background_color": "#fff3cd"
+                }
+            ],
+            "game_mechanics": {
+                "time_limit": true,
+                "score_system": true,
+                "hint_system": {
+                    "available_hints": 3,
+                    "hint_penalty": 10,
+                    "hint_cooldown": 300
+                }
+            }
+        };
+
+        // Function to create panel elements
+        function createPanels() {
+            const container = document.getElementById('storyboard-container');
+            
+            storyData.panels.forEach(panel => {
+                const panelElement = document.createElement('div');
+                panelElement.className = 'col-md-4 mb-4';
+                panelElement.innerHTML = `
+                    <div class="story-panel" style="background-color: ${panel.background_color}">
+                        <h3 class="h5 mb-3">${panel.title}</h3>
+                        <div class="panel-preview mb-3"></div>
+                        <p class="mb-2">${panel.description}</p>
+                        <div class="gameplay-elements">
+                            <h6>Gameplay Elements:</h6>
+                            <ul class="small">
+                                ${panel.gameplay_elements.map(element => `
+                                    <li>${element}</li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(panelElement);
+            });
+        }
+
+        // Initialize the panels
+        document.addEventListener('DOMContentLoaded', createPanels);
+    </script>
+</body>
+</html>
