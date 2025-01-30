@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Roles and Assignments</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Team Roles and Assignments</h1>
+        <div class="row" id="roles-container">
+            <!-- Content will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Team data in structured JSON format
+        const teamData = {
+            "leadership": {
+                "title": "Leadership",
+                "roles": [
+                    { "role": "Team Leader", "member": "Wayne" },
+                    { "role": "Manager", "member": "Wayne" },
+                    { "role": "CEO", "member": "Wayne" }
+                ]
+            },
+            "development": {
+                "title": "Development",
+                "roles": [
+                    { "role": "Project Development/Coding", "member": "Chase" },
+                    { "role": "Character Development/CCD", "member": "Will" },
+                    { "role": "Character Development/CCD", "member": "Sam" },
+                    { "role": "Character Development/CCD", "member": "Jose" }
+                ]
+            },
+            "quality": {
+                "title": "Quality Assurance",
+                "roles": [
+                    { "role": "Quality Control", "member": "Tyler C" },
+                    { "role": "Structural", "member": "Jar" }
+                ]
+            },
+            "creative": {
+                "title": "Creative",
+                "roles": [
+                    { "role": "Story/Story Board", "member": "Tim" },
+                    { "role": "Story/Story Board", "member": "Tyler" },
+                    { "role": "Graphic Design", "member": "Vincent" },
+                    { "role": "Audio", "member": "Monajah" }
+                ]
+            },
+            "research": {
+                "title": "Research",
+                "roles": [
+                    { "role": "Researcher", "member": "Ronnie" },
+                    { "role": "Researcher", "member": "Tashana" }
+                ]
+            }
+        };
+
+        // Function to create and display role cards
+        function displayRoles() {
+            const container = document.getElementById('roles-container');
+            
+            Object.entries(teamData).forEach(([key, section]) => {
+                const sectionDiv = document.createElement('div');
+                sectionDiv.className = 'col-md-6 mb-4';
+                
+                const card = document.createElement('div');
+                card.className = 'card h-100';
+                
+                const cardHeader = document.createElement('div');
+                cardHeader.className = 'card-header bg-primary text-white';
+                cardHeader.innerHTML = `<h3 class="mb-0">${section.title}</h3>`;
+                
+                const cardBody = document.createElement('div');
+                cardBody.className = 'card-body';
+                
+                const rolesList = document.createElement('ul');
+                rolesList.className = 'list-group list-group-flush';
+                
+                section.roles.forEach(roleData => {
+                    const listItem = document.createElement('li');
+                    listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+                    listItem.innerHTML = `
+                        <span class="role">${roleData.role}</span>
+                        <span class="badge bg-secondary rounded-pill">${roleData.member}</span>
+                    `;
+                    rolesList.appendChild(listItem);
+                });
+                
+                cardBody.appendChild(rolesList);
+                card.appendChild(cardHeader);
+                card.appendChild(cardBody);
+                sectionDiv.appendChild(card);
+                container.appendChild(sectionDiv);
+            });
+        }
+
+        // Initialize the display when the page loads
+        document.addEventListener('DOMContentLoaded', displayRoles);
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
