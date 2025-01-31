@@ -277,4 +277,6 @@ Welcome to the Online Detective Game! This guide will help you understand all th
 - Strategy sharing
 - Team recruitment
 
+- make story board
+
 Remember, every detail counts in solving a case. Take your time, be thorough, and work well with your team. Good luck, Detective!
