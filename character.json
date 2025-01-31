@@ -30,6 +30,29 @@
                     "response": "I am but an old woman selling fruit, aren’t I? But tell me, child, why does a simple fruit seller know so much about the past?"
                 }
             ]
+        },
+        {
+            "name": "Mr. Pecan",
+            "backstory": "Mr. Pecan, also known as Agent Pecan, was a top spy for the government. He was known for his stealth, intelligence, and ability to blend in anywhere. After a mission went wrong, he faked his own death and disappeared. Now, he runs a small nut shop in the virtual world, where he keeps an eye on the world's secrets and watches for any signs of danger.",
+            "details": {
+                "Occupation": "Former government spy, now nut shop owner" },
+            "clues": [
+                {
+                    "keyword": "mission",
+                    "response": "Ah, the mission! Some things are better left in the shadows, my friend. But if you seek the truth, follow the trail of the fallen leaves and the whispers of the wind."
+                },
+                {
+                    "keyword": "danger",
+                    "response": "Danger is like a shadow—it lurks where you least expect it. Keep your eyes open, and your wits sharp, for the world is full of hidden perils."
+                },
+                {
+                    "keyword": "secrets",
+                    "response": "Secrets are like nuts—hard to crack, but worth the effort. Look beyond the shell, my friend, and you might just find the kernel of truth."
+                },
+                {
+                    "keyword": "who are you",
+                    "response": "Who am I? Ah, that is the question, isn’t it? Some call me a nut seller, others a spy. But tell me, my friend, why does a simple nut seller know so much about danger and secrets?"
+                }           
+            ]
         }
-    ]
-}
+    }
