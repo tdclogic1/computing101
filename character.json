@@ -52,7 +52,54 @@
                 {
                     "keyword": "who are you",
                     "response": "Who am I? Ah, that is the question, isn’t it? Some call me a nut seller, others a spy. But tell me, my friend, why does a simple nut seller know so much about danger and secrets?"
-                }           
+                }
             ]
-        }
-    }
+        },
+        {
+            "name": "Ginger Hughes",
+            "backstory":"Ginger was born into a long line of overachievers and is used to being in the spotlight. She’s a star athlete on the school's track team and has a reputation for being highly competitive. She’s been at the school since freshman year and has always been a bit of a "queen bee" figure.",
+            "details": {
+                "Occupation": "Student(Senior)" },
+            "clues": [
+                {
+                    "keyword": "mission",
+                    "response": "A mission? Please, I don’t need a mission to know what’s going on. I’m always one step ahead. But if you want a real challenge, try keeping up with me."
+                },
+                {
+                    "keyword": "danger",
+                    "response": "Danger? Please. I was born in danger. It’s more like an adrenaline rush to me. I’m not afraid of a little heat. But if you want to keep hiding behind that fear, be my guest."
+                },
+                {
+                    "keyword": "secrets",
+                    "response": "Secrets? Everyone’s got them. Some people just don’t know how to keep ‘em. If you think I’m the one with something to hide, you’ve got another thing coming. But trust me, I’m way better at playing the game than anyone else here."
+                },
+                {
+                    "keyword": "who are you",
+                    "response": "Me? The name's Ginger Hughes, and I run this school. I'm the best track runner here, which caused me to be the best around."
+                }
+            ]
+        },
+         {
+            "name": "",
+            "backstory":"",
+            "details": {
+                "Occupation": "" },
+            "clues": [
+                {
+                    "keyword": "mission",
+                    "response": ""
+                },
+                {
+                    "keyword": "danger",
+                    "response": ""
+                },
+                {
+                    "keyword": "secrets",
+                    "response": ""
+                },
+                {
+                    "keyword": "who are you",
+                    "response": ""
+                }
+            ]
+        },
