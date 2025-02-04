@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Data Demo</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Directory</h1>
+        <button class="button" onclick="loadUsers()">Load Users</button>
+        <div id="userList"></div>
+    </div>
+
+    <script>
+        // Sample JSON data (normally this would be in a separate file)
+        const jsonData = {
+            "users": [
+                {
+                    "id": 1,
+                    "name": "John Doe",
+                    "email": "john@example.com",
+                    "role": "Developer"
+                },
+                {
+                    "id": 2,
+                    "name": "Jane Smith",
+                    "email": "jane@example.com",
+                    "role": "Designer"
+                },
+                {
+                    "id": 3,
+                    "name": "Bob Johnson",
+                    "email": "bob@example.com",
+                    "role": "Manager"
+                }
+            ]
+        };
+
+        function loadUsers() {
+            const userList = document.getElementById('userList');
+            userList.innerHTML = '';
+
+            jsonData.users.forEach(user => {
+                const userCard = document.createElement('div');
+                userCard.className = 'card';
+                userCard.innerHTML = `
+                    <h3>${user.name}</h3>
+                    <p>Email: ${user.email}</p>
+                    <p>Role: ${user.role}</p>
+                `;
+                userList.appendChild(userCard);
+            });
+        }
+    </script>
+</body>
+</html>

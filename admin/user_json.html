@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Data Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>User Directory</h1>
+        <button class="button" onclick="loadUsers()">Load Users</button>
+        <div id="userList"></div>
+    </div>
+
+    <script>
+        async function loadUsers() {
+            try {
+                const response = await fetch('users.json');
+                const jsonData = await response.json();
+                const userList = document.getElementById('userList');
+                userList.innerHTML = '';
+
+                jsonData.users.forEach(user => {
+                    const userCard = document.createElement('div');
+                    userCard.className = 'card';
+                    userCard.innerHTML = `
+                        <h3>${user.name}</h3>
+                        <p>Email: ${user.email}</p>
+                        <p>Role: ${user.role}</p>
+                    `;
+                    userList.appendChild(userCard);
+                });
+            } catch (error) {
+                console.error('Error loading users:', error);
+            }
+        }
+    </script>
+</body>
+</html>
