@@ -1,0 +1,49 @@
+{
+    "policyId": "001",
+    "policyName": "Virtual Murder Mystery Game Policy",
+    "description": "This policy governs the rules and regulations of the virtual murder mystery game.",
+    "rules": [
+        {
+            "ruleId": "1",
+            "ruleName": "Character Assignment",
+            "description": "Players must be assigned characters randomly to ensure fairness."
+        },
+        {
+            "ruleId": "2",
+            "ruleName": "Role Confidentiality",
+            "description": "The roles of the murderer and victim must remain confidential until revealed by the game."
+        },
+        {
+            "ruleId": "3",
+            "ruleName": "Clue Distribution",
+            "description": "Clues must be distributed evenly among players to maintain balance."
+        },
+        {
+            "ruleId": "4",
+            "ruleName": "Time Limit",
+            "description": "The game must be completed within the specified time limit of 2 hours."
+        },
+        {
+            "ruleId": "5",
+            "ruleName": "Player Conduct",
+            "description": "Players must exhibit respectful behavior towards others and follow the game's code of conduct."
+        }
+    ],
+    "enforcement": [
+        {
+            "enforcementId": "1",
+            "enforcementAction": "Disqualification",
+            "description": "Players who violate major rules will be disqualified from the game."
+        },
+        {
+            "enforcementId": "2",
+            "enforcementAction": "Warning",
+            "description": "Players who violate minor rules will receive a warning."
+        },
+        {
+            "enforcementId": "3",
+            "enforcementAction": "Temporary Suspension",
+            "description": "Players who repeatedly violate rules may face temporary suspension from future games."
+        }
+    ]
+}
