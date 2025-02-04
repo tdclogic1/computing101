@@ -59,7 +59,9 @@
             "name": "Ginger Hughes",
             "backstory":"Ginger was born into a long line of overachievers and is used to being in the spotlight. She’s a star athlete on the school's track team and has a reputation for being highly competitive. She’s been at the school since freshman year and has always been a bit of a "queen bee" figure.",
             "details": {
-                "Occupation": "Student(Senior)" },
+                "Occupation": "Student(Senior)"
+                "Appearance": "Ginger Hughes is the embodiment of confidence and athleticism. Standing at about 5'9", she has a tall, toned physique that reflects years of intense training on the track team. Her body is sculpted, every muscle defined from her consistent workouts, but she maintains a graceful and poised appearance, never seeming bulky. She has a strong presence, with a posture that screams “leader,” always standing tall, head high, and shoulders squared. Her hair is her most defining feature: a brilliant, fiery red that seems to glow in the sunlight, cascading in a sleek, high ponytail that swishes with every movement she makes. It’s glossy and vibrant, often tied up in a neat, practical style when she's training, but loose and flowing when she’s off the track, giving her a dramatic and fiery look. Even in her downtime, her hair is always styled perfectly, as though she knows that all eyes are on her and expects nothing less than perfection. Her skin is sun-kissed with a natural, warm glow from all the time spent outdoors training and competing. It’s clear she takes great pride in maintaining her skin, with a healthy, youthful complexion that shines effortlessly. Her eyes are a striking shade of emerald green, sharp and calculating, constantly surveying her surroundings with the intensity of an athlete. They hold a certain command over those around her, giving off the impression that she’s always a step ahead in whatever game is being played. Her eyebrows are thick and well-defined, giving her a look of both intensity and focus. Ginger’s lips are full and naturally pouty, usually adorned with a hint of a bold red or pink gloss, matching the overall fierceness of her style. Her smile is confident, even a bit smug at times—she’s aware of her allure and charm, and she enjoys the attention it brings."
+            },
             "clues": [
                 {
                     "keyword": "mission",
@@ -71,7 +73,7 @@
                 },
                 {
                     "keyword": "secrets",
-                    "response": "Secrets? Everyone’s got them. Some people just don’t know how to keep ‘em. If you think I’m the one with something to hide, you’ve got another thing coming. But trust me, I’m way better at playing the game than anyone else here."
+                    "response": "Secrets? Everyone’s got them. Some people just don’t know how to keep ‘em. If you think I’m the one with something to hide, you’ve got another thing coming."
                 },
                 {
                     "keyword": "who are you",
@@ -80,10 +82,12 @@
             ]
         },
          {
-            "name": "",
-            "backstory":"",
+            "name": "Forest Poindexter",
+            "backstory":"Forest Poindexter is a brilliant but reclusive botanist with a passion for rare plants and wilderness survival. His obsession with plants started in his youth when he discovered an ancient forest near his home and became fascinated with the hidden, medicinal properties of plants. A quiet but sharp observer, Forest has an extensive knowledge of the natural world and often gets lost in the beauty of plants. However, his true ambition lies in experimenting with genetic modification to create a hybrid plant that could revolutionize the pharmaceutical world. Poindexter has a strange fondness for all things green, frequently wearing moss-green clothing and living in a home built into the trees. He once worked with a wealthy scientist who was developing a groundbreaking plant-based treatment, but a falling out led to bitter rivalry. Poindexter has always envied his former colleague's success and secretly wishes to steal the formula for his own. His eccentric, quirky behavior often makes him seem aloof, but beneath the surface lies a calculating mind always thinking two steps ahead.","
             "details": {
-                "Occupation": "" },
+                "Occupation": "Student(Freshman)" 
+                "Appearance": "Forest Poindexter has a quiet, unassuming presence that immediately evokes the feeling of someone who’s always on the edge of the wilderness, even when he's inside. He stands at about 6'4", with a muscular build, the kind that comes from long days spent hiking and experimenting in the wild. His movements are calculated, graceful—there’s a fluidity to him, like he’s never truly rushing, always in harmony with his surroundings. His complexion is very dark. His face has an angular quality to it, with sharp cheekbones and a well-defined jaw. He has a few faint lines near his eyes, suggesting a life spent in deep thought and observation. Forest's lips are full but rarely curve into a smile—his expression often stays neutral, focused, lost in whatever thought occupies his mind at the moment. His eyes are his most captivating feature—vivid green with golden specks, reminiscent of the leaves in the forest canopy during early autumn. They carry an intense focus, as though he’s always searching for something, be it a new species, an idea, or an answer to a question that only he’s been asking for years. His hair is in the style of a short afro. Also, he wears black glasses"
+            },
             "clues": [
                 {
                     "keyword": "mission",
@@ -103,3 +107,56 @@
                 }
             ]
         },
+ {
+            "name": "",
+            "backstory":""
+            "details": {
+                "Occupation": "" 
+                "Appearance": ""
+            },
+            "clues": [
+                {
+                    "keyword": "mission",
+                    "response": ""
+                },
+                {
+                    "keyword": "danger",
+                    "response": ""
+                },
+                {
+                    "keyword": "secrets",
+                    "response": ""
+                },
+                {
+                    "keyword": "who are you",
+                    "response": ""
+                }
+            ]
+        },
+ {
+            "name": "",
+            "backstory":""
+            "details": {
+                "Occupation": "" 
+                "Appearance": ""
+            },
+            "clues": [
+                {
+                    "keyword": "mission",
+                    "response": ""
+                },
+                {
+                    "keyword": "danger",
+                    "response": ""
+                },
+                {
+                    "keyword": "secrets",
+                    "response": ""
+                },
+                {
+                    "keyword": "who are you",
+                    "response": ""
+                }
+            ]
+        },
+
