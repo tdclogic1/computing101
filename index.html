@@ -3,78 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game: Clue</title>
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Game: Clue</h1>
-    <h2>Research</h2>
-    <ul>
-        <li>The scene is set in a building of choice, most typically a mansion</li>
-        <li>The players are each given roles- one or two people playing as the murderer</li>
-        <li>To win the game of clue you have to find three of the following about the case:</li>
-        <ul>
-            <li>Who did it?</li>
-            <li>With what weapon</li>
-            <li>Where</li>
-        </ul>
-        <li>The other players ask a clue question</li>
-        <li>There are 6 players in total, the rest are all side characters and the host ends up dead mysteriously</li>
-    </ul>
 
-    <h2>Structure of the Storyline</h2>
-    <ul>
-        <li>Would this game be like the traditional type of clue game or would there be some differences in it? If there is, what are the differences that you would like to add?</li>
-        <ul>
-            <li>It will not be like the traditional type of clue game, it is merely based on it; it will have different themes, settings, and/or world, each associated with their own characters.</li>
-        </ul>
-        <li>Themes:</li>
-        <li>Setting: Where is it, describe the area, what year would it be in, what type of unexpected events would be in it?</li>
-        <li>Characters background and details: How many characters are there, who are they, profession, motives, religions, belief, culture?</li>
-        <li>Victim:</li>
-        <li>Murderer:</li>
-        <li>How many endings?</li>
-        <ul>
-            <li>There are multiple endings</li>
-        </ul>
-        <li>How is the murderer and the victim decided?</li>
-        <li>What are the different types of music that would be played for each phase and part of the setting?</li>
-        <li>How does the beginning start?</li>
-        <li>What type of storyline would it be? Would it be simple? Would there be a story for the murderer to tell, is there a storyline that would follow for the detectives? Would the storyline be straightforward? Would the storyline be complicated? Would there be several victims and murder with their own motives? Is there a main character? Is there a bad ending? If there is, what type of bad ending?</li>
-        <li>How many different storylines would there be?</li>
-        <li>Would there be different settings for the main characters to follow if the storyline is to follow the main character?</li>
-        <li>What type of perspective or view would it be in? Would it be first person perspective, second, or third person, or narrator perspective, or the main character perspective or the murderer perspective or the victim perspective?</li>
-        <li>What are the rules and limitations that would be placed on the character?</li>
-        <li>Would there be hidden areas or endings?</li>
-        <li>What are the ways characters would be able to find out clues?</li>
-        <li>Is there a time limit?</li>
-        <li>What are the different tensions and surprises involved in it?</li>
-        <li>What is the plot?</li>
-        <li>What are the different tones and styles of the characters?</li>
-        <li>What is the climax?</li>
-        <li>What are the falling actions?</li>
-        <li>What is the resolution? Is there a resolution?</li>
-        <li>What are the different actions to be involved? How are those actions to be shown to the player, or character?</li>
-        <li>What type of conflict is it? Is it internal or external?</li>
-    </ul>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar py-3">
+            <div class="position-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#pages">
+                            <i class="bi bi-file-earmark-text"></i> Pages
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#data">
+                            <i class="bi bi-database"></i> Data
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-    <h2>Structure of the Game</h2>
-    <ul>
-        <li>How do players get in? Do they go through an app or website? How many servers would there be? How many people would be on per server?</li>
-        <li>What is the first thing that players need to do?</li>
-        <li>What are the policy, rules, and regulations involved in it? Do they choose a character or would it automatically generate for them? Is there a group of characters for different settings, mode, theme?</li>
-        <li>They choose the mode they would like to play in? What are the different modes?</li>
-        <li>They choose the theme/setting. What are the different themes and settings?</li>
-        <li>How does the storyline play out from there?</li>
-        <ul>
-            <li>Would a portfolio of the characters be described to the player?</li>
-            <li>Is there a limit to the information about the characters that would be revealed about the characters?</li>
-        </ul>
-        <li>Is there a time limit to it?</li>
-        <li>How does the story end? Is there a different ending? What are the different endings? How would the game come to an end?</li>
-        <li>What are the rewards that are involved in the game?</li>
-        <li>What would make players want to keep playing the game?</li>
-        <li>What is the look of the game?</li>
-        <li>Is the replay going to be the same or would there be different changes involved like changes in characters, or a different prompt?</li>
-    </ul>
+        <!-- Main Content -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+            <h1 class="h2 mb-4">Admin Dashboard</h1>
+
+            <!-- Pages Section -->
+            <section id="pages" class="mb-5">
+                <h2 class="h4 mb-4">Pages</h2>
+                <div class="row g-4">
+                    <!-- Root Pages -->
+                    <div class="col-12 mb-4">
+                        <h3 class="h5 mb-3">Root Directory</h3>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="card card-dashboard">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="bi bi-house"></i> index.html</h5>
+                                        <p class="card-text text-muted">Main landing page</p>
+                                        <a href="/index.html" class="btn btn-sm btn-primary">View</a>
+                                        <a href="#" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-dashboard">
+                                    <div class="card-body">
+                                        <h5 class="card-title">murdermystery1.1.html</h5>
+                                        <p class="card-text text-muted">Mystery game page</p>
+                                        <a href="/murdermystery1.1.html" class="btn btn-sm btn-primary">View</a>
+                                        <a href="#" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional root pages -->
+                        </div>
+                    </div>
+
+                    <!-- Admin Pages -->
+                    <div class="col-12 mb-4">
+                        <h3 class="h5 mb-3">Admin Directory</h3>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="card card-dashboard">
+                                    <div class="card-body">
+                                        <h5 class="card-title">planner.html</h5>
+                                        <p class="card-text text-muted">Course planner interface</p>
+                                        <a href="/admin/planner.html" class="btn btn-sm btn-primary">View</a>
+                                        <a href="#" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional admin pages -->
+                        </div>
+                    </div>
+
+                    <!-- Story Pages -->
+                    <div class="col-12 mb-4">
+                        <h3 class="h5 mb-3">Story Directory</h3>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="card card-dashboard">
+                                    <div class="card-body">
+                                        <h5 class="card-title">storyprocess.html</h5>
+                                        <p class="card-text text-muted">Story creation process</p>
+                                        <a href="/story/storyprocess.html" class="btn btn-sm btn-primary">View</a>
+                                        <a href="#" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Section -->
+            <section id="data">
+                <h2 class="h4 mb-4">Data Files</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card card-dashboard">
+                            <div class="card-body">
+                                <h5 class="card-title">course-data.json</h5>
+                                <div class="json-preview">
+                                    <pre id="courseDataPreview"></pre>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-sm btn-primary" onclick="viewJson('course-data.json')">View Full</button>
+                                    <button class="btn btn-sm btn-outline-secondary" onclick="editJson('course-data.json')">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card card-dashboard">
+                            <div class="card-body">
+                                <h5 class="card-title">users.json</h5>
+                                <div class="json-preview">
+                                    <pre id="usersDataPreview"></pre>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-sm btn-primary" onclick="viewJson('users.json')">View Full</button>
+                                    <button class="btn btn-sm btn-outline-secondary" onclick="editJson('users.json')">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card card-dashboard">
+                            <div class="card-body">
+                                <h5 class="card-title">policy.json</h5>
+                                <div class="json-preview">
+                                    <pre id="policyDataPreview"></pre>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-sm btn-primary" onclick="viewJson('policy.json')">View Full</button>
+                                    <button class="btn btn-sm btn-outline-secondary" onclick="editJson('policy.json')">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/dashboard.js"></script>
 </body>
 </html>

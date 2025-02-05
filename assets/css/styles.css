@@ -118,3 +118,18 @@
         font-size: 1.5rem;
     }
 }
+.card-dashboard {
+    transition: transform 0.2s;
+}
+.card-dashboard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.json-preview {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    font-family: monospace;
+    max-height: 200px;
+    overflow-y: auto;
+}
