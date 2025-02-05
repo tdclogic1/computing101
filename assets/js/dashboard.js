@@ -82,3 +82,8 @@ async function backupData() {
     // Implementation for data backup
     console.log('Backing up data...');
 }
+
+function viewSource(url) {
+    const viewerUrl = '/admin/htmlviewer.html?url=' + encodeURIComponent(url);
+    window.open(viewerUrl, '_blank');
+}

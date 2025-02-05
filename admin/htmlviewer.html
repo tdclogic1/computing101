@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Source Code Viewer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <style>
+        #sourceCode {
+            font-family: monospace;
+            white-space: pre;
+            tab-size: 4;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 4px;
+            max-height: 80vh;
+            overflow: auto;
+        }
+        .line-numbers {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3rem;
+            background: #252525;
+            color: #858585;
+            text-align: right;
+            padding: 1rem 0.5rem;
+            border-right: 1px solid #333;
+        }
+        .code-container {
+            position: relative;
+            padding-left: 3rem;
+        }
+        .toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: white;
+            padding: 1rem 0;
+        }
+        .language-select {
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-3">
+        <div class="toolbar mb-3">
+            <div class="row g-3 align-items-center">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" id="urlInput" class="form-control" placeholder="Enter URL">
+                        <button class="btn btn-primary" onclick="fetchSource()">View Source</button>
+                    </div>
+                </div>
+                <div class="col-md-auto">
+                    <select id="languageSelect" class="form-select language-select" onchange="updateHighlighting()">
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="json">JSON</option>
+                        <option value="plaintext">Plain Text</option>
+                    </select>
+                </div>
+                <div class="col-md-auto">
+                    <div class="btn-group">
+                        <button class="btn btn-outline-secondary" onclick="copySource()">
+                            Copy
+                        </button>
+                        <button class="btn btn-outline-secondary" onclick="downloadSource()">
+                            Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="code-container">
+            <div class="line-numbers" id="lineNumbers"></div>
+            <pre id="sourceCode">Enter a URL and click "View Source" to see the content.</pre>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script>
+        async function fetchSource() {
+            const url = document.getElementById('urlInput').value;
+            if (!url) return;
+
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                displaySource(text);
+            } catch (error) {
+                document.getElementById('sourceCode').textContent = `Error fetching source: ${error.message}`;
+            }
+        }
+
+        function displaySource(source) {
+            const sourceCode = document.getElementById('sourceCode');
+            sourceCode.textContent = source;
+            updateLineNumbers(source);
+            updateHighlighting();
+        }
+
+        function updateLineNumbers(source) {
+            const lines = source.split('\n').length;
+            const lineNumbers = document.getElementById('lineNumbers');
+            lineNumbers.innerHTML = Array.from({ length: lines }, (_, i) => i + 1).join('\n');
+        }
+
+        function updateHighlighting() {
+            const sourceCode = document.getElementById('sourceCode');
+            const language = document.getElementById('languageSelect').value;
+            sourceCode.className = `language-${language}`;
+            Prism.highlightElement(sourceCode);
+        }
+
+        function copySource() {
+            const sourceCode = document.getElementById('sourceCode');
+            navigator.clipboard.writeText(sourceCode.textContent)
+                .then(() => alert('Source code copied to clipboard!'))
+                .catch(err => alert('Failed to copy source code'));
+        }
+
+        function downloadSource() {
+            const sourceCode = document.getElementById('sourceCode').textContent;
+            const blob = new Blob([sourceCode], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'source.txt';
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Handle URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialUrl = urlParams.get('url');
+        if (initialUrl) {
+            document.getElementById('urlInput').value = initialUrl;
+            fetchSource();
+        }
+    </script>
+</body>
+</html>
