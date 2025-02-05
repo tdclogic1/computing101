@@ -1,0 +1,128 @@
+import React, { useState } from 'react';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Calendar, BookOpen, BeakerIcon } from 'lucide-react';
+
+const CourseSchedule = () => {
+  const [data, setData] = useState({
+    courseName: "Web Development 101",
+    semester: "Spring 2025",
+    weeks: [] // Will be populated from JSON
+  });
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await window.fs.readFile('course-data.json');
+        const jsonData = JSON.parse(new TextDecoder().decode(response));
+        setData(jsonData);
+      } catch (error) {
+        console.error('Error loading course data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <div className="container mx-auto p-4">
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold">{data.courseName}</h1>
+        <p className="text-lg text-gray-600">{data.semester}</p>
+      </div>
+
+      <Tabs defaultValue="1" className="w-full">
+        <TabsList className="flex space-x-2 mb-4 overflow-x-auto">
+          {data.weeks.map((week) => (
+            <TabsTrigger 
+              key={week.weekNumber}
+              value={week.weekNumber.toString()}
+              className="px-4 py-2"
+            >
+              Week {week.weekNumber}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+
+        {data.weeks.map((week) => (
+          <TabsContent key={week.weekNumber} value={week.weekNumber.toString()}>
+            <Card className="mb-6">
+              <CardHeader>
+                <CardTitle className="text-xl">Week {week.weekNumber}: {week.topic}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  {/* Assignments Section */}
+                  <div>
+                    <h3 className="text-lg font-semibold mb-3 flex items-center">
+                      <BookOpen className="mr-2" size={20} />
+                      Assignments
+                    </h3>
+                    <div className="space-y-4">
+                      {week.assignments.map((assignment) => (
+                        <div key={assignment.id} className="border-l-4 border-blue-500 pl-4">
+                          <h4 className="font-medium">{assignment.title}</h4>
+                          <p className="text-sm text-gray-600">{assignment.description}</p>
+                          <div className="mt-2 text-sm">
+                            <span className="text-blue-600">Due: {assignment.dueDate}</span>
+                            <span className="ml-4">Points: {assignment.points}</span>
+                          </div>
+                          {assignment.resources && (
+                            <div className="mt-2">
+                              {assignment.resources.map((resource, idx) => (
+                                <a
+                                  key={idx}
+                                  href={resource.url}
+                                  className="text-sm text-blue-500 hover:underline block"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  📚 {resource.title}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Activities Section */}
+                  <div>
+                    <h3 className="text-lg font-semibold mb-3 flex items-center">
+                      <Calendar className="mr-2" size={20} />
+                      Activities
+                    </h3>
+                    <div className="space-y-4">
+                      {week.activities.map((activity) => (
+                        <div key={activity.id} className="border-l-4 border-green-500 pl-4">
+                          <h4 className="font-medium">{activity.title}</h4>
+                          <p className="text-sm text-gray-600">{activity.description}</p>
+                          <div className="mt-2 text-sm">
+                            <span className="text-green-600">Date: {activity.date}</span>
+                            <span className="ml-4">Duration: {activity.duration}</span>
+                          </div>
+                          {activity.sampleUrl && (
+                            <a
+                              href={activity.sampleUrl}
+                              className="text-sm text-blue-500 hover:underline block mt-2"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              🔗 View Sample
+                            </a>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        ))}
+      </Tabs>
+    </div>
+  );
+};
+
+export default CourseSchedule;

@@ -1,0 +1,112 @@
+{
+    "courseName": "Computing 101",
+    "semester": "Spring 2025",
+    "weeks": [
+        {
+            "weekNumber": 1,
+            "topic": "Introduction to HTML, creating a platform, project management, roles and responsibilities. Tasks management and delegation.",
+            "assignments": [
+                {
+                    "id": "a1",
+                    "title": "Basic HTML Structure",
+                    "type": "assignment",
+                    "dueDate": "2025-02-07",
+                    "description": "Create a simple HTML page with proper structure, headings, and paragraphs. Each student will build two webpages associated with the project.  We walk through examples in class and discuss html, css, js and json.",
+                    "points": 10,
+                    "resources": [
+                        {
+                            "title": "HTML5 Tutorial",
+                            "url": "https://www.w3schools.com/html/",
+                            "type": "reference"
+                        }
+                    ]
+                },
+                {
+                    "id": "q1",
+                    "title": "HTML Quiz",
+                    "type": "quiz",
+                    "dueDate": "2025-02-07",
+                    "description": "Basic HTML elements and attributes quiz",
+                    "points": 5,
+                    "resources": [
+                        {
+                            "title": "Quiz",
+                            "url": "https://example.com/html-quiz",
+                            "type": "reference"
+                        }
+                    ]
+                }
+            ],
+            "activities": [
+                {
+                    "id": "lab1",
+                    "title": "HTML Lab",
+                    "type": "lab",
+                    "date": "2025-02-11",
+                    "description": "Hands-on practice with HTML elements",
+                    "duration": "3 - classes",
+                    "sampleUrl": "https://tdclogic1.github.io/computing101/"
+                }
+            ]
+        },
+        {
+            "weekNumber": 2,
+            "topic": "CSS Fundamentals",
+            "assignments": [
+                {
+                    "id": "a2",
+                    "title": "CSS Styling",
+                    "type": "assignment",
+                    "dueDate": "2025-02-17",
+                    "description": "Style your HTML page from week 1",
+                    "points": 15,
+                    "resources": [
+                        {
+                            "title": "CSS Best Practices",
+                            "url": "https://example.com/css-guide",
+                            "type": "tutorial"
+                        }
+                    ]
+                }
+            ],
+            "activities": [
+                {
+                    "id": "lab2",
+                    "title": "CSS Layouts Lab",
+                    "type": "lab",
+                    "date": "2025-02-18",
+                    "description": "Practice with Flexbox and Grid",
+                    "duration": "50 minutes",
+                    "sampleUrl": "https://example.com/lab2-demo"
+                }
+            ]
+        },
+        { "weekNumber":0,
+            "topic": "Team, Roles, Settings",
+            "assignments": [
+                {
+                    "id": "a3",
+                    "title": "Roles",
+                    "type": "assignment",
+                    "dueDate": "2025-02-3",
+                    "description": "Roles and Responsibilities",
+                    "points": 15,
+                    "resources": [
+                        {
+                            "title": "Roles",
+                            "url": "roles.html",
+                            "type": "tutorial"
+                        }
+                    ]
+                }
+            ],
+            "activities": [
+                {
+                   
+                }
+            ]
+
+        }
+
+    ]
+}

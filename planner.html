@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Schedule</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-4">
+        <header class="mb-4">
+            <h1 class="course-title">Web Development 101</h1>
+            <p class="semester">Spring 2025</p>
+        </header>
+
+        <div class="week-tabs">
+            <ul class="nav nav-tabs" id="weekTabs" role="tablist">
+                <!-- Tabs will be dynamically inserted here -->
+            </ul>
+        </div>
+
+        <div class="tab-content mt-3" id="weekContent">
+            <!-- Week content will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <template id="weekTemplate">
+        <div class="tab-pane fade" role="tabpanel">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="week-topic mb-0"></h2>
+                </div>
+                <div class="card-body">
+                    <div class="assignments-section mb-4">
+                        <h3 class="section-title">
+                            <i class="bi bi-book"></i> Assignments
+                        </h3>
+                        <div class="assignments-list">
+                            <!-- Assignments will be inserted here -->
+                        </div>
+                    </div>
+                    <div class="activities-section">
+                        <h3 class="section-title">
+                            <i class="bi bi-calendar"></i> Activities
+                        </h3>
+                        <div class="activities-list">
+                            <!-- Activities will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
