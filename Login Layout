@@ -1,1 +1,10 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Layout</title>
+</head>
+<body>
+    <img src="https://api.deepai.org/job-view-file/dae5f34c-455a-4711-9bda-95ef8576fcef/outputs/output.jpg" alt="Image">
+    <!-- Existing content goes here -->
+</body>
+</html>
