@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Case of Mr PBCup - Haunted U Mystery</title>
+    <style>
+        :root {
+            --shadow-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Georgia', serif;
+            background: #000;
+            color: #fff;
+        }
+        
+        .container {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px var(--shadow-color);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #d4a017;
+            text-shadow: 2px 2px 4px var(--shadow-color);
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin: 20px 0;
+            background: #111;
+            border: 2px solid #d4a017;
+            border-radius: 5px;
+        }
+        
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: #888;
+        }
+        
+        .description {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 20px 0;
+            text-align: justify;
+        }
+        
+        .clue-counter {
+            text-align: center;
+            font-size: 1.2em;
+            color: #d4a017;
+            margin: 20px 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #888;
+        }
+        
+        @media (max-width: 600px) {
+            .content {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>The Case of Mr PBCup</h1>
+            
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <video controls width="100%" height="100%">
+                        <source src="/assets/vids/IRIS_PBCUP.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            
+            <div class="description">
+                <p>Welcome to Haunted U, where the mysterious disappearance of the beloved Mr PBCup has left our campus in darkness. Armed with only a magnifying glass and an insatiable appetite for truth, you must navigate through shadowy libraries, decoded ancient texts, and face the whispers of secrets that echo through these hallowed halls.</p>
+                
+                <p>Can you uncover the truth behind Mr PBCup's vanishing? Every cupcake wrapper tells a story, every bookmark holds a secret, and time is running out...</p>
+            </div>
+            
+            <div class="clue-counter">
+                <span id="clueCount">0</span> Clues Discovered
+            </div>
+        </div>
+        
+        <div class="footer">
+            © 2025 Haunted U Mysteries
+        </div>
+    </div>
+
+    <script>
+        // Initialize clue counter
+        let clueCount = 0;
+        const clueDisplay = document.getElementById('clueCount');
+        
+        // Function to add video
+        function initializeVideo(videoUrl) {
+            const videoContainer = document.querySelector('.video-container');
+            const video = document.createElement('video');
+            video.setAttribute('controls', '');
+            video.setAttribute('width', '100%');
+            video.setAttribute('height', '100%');
+            
+            const source = document.createElement('source');
+            source.setAttribute('src', videoUrl);
+            source.setAttribute('type', 'video/mp4');
+            
+            video.appendChild(source);
+            videoContainer.innerHTML = '';
+            videoContainer.appendChild(video);
+        }
+        
+        // Function to update clue counter
+        function updateClueCount(newCount) {
+            clueCount = newCount;
+            clueDisplay.textContent = clueCount;
+        }
+        
+        // Add event listeners when document is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example: Update clue count every few seconds (for demonstration)
+            setInterval(() => {
+                updateClueCount(clueCount + 1);
+            }, 10000);
+        });
+    </script>
+</body>
+</html>

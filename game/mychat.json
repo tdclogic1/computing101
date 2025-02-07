@@ -1,0 +1,32 @@
+{
+    "visits": [
+      {
+        "character": "Mrs. Arcot",
+        "location": "Fruit Shop",
+        "firstVisit": "2025-02-06T12:00:00",
+        "lastVisit": "2025-02-06T12:00:00",
+        "visitCount": 1
+      }
+    ],
+    "notes": [
+      {
+        "id": "note1",
+        "character": "Mrs. Arcot",
+        "timestamp": "2025-02-06T12:00:00",
+        "content": "Welcome to my fruit shop! The special today is fresh apricots.",
+        "tags": ["introduction", "fruits"]
+      }
+    ],
+    "conversations": {
+      "Mrs. Arcot": {
+        "messages": [
+          {
+            "id": "msg1",
+            "speaker": "Mrs. Arcot",
+            "content": "Welcome to my fruit shop! How can I help you today?",
+            "timestamp": "2025-02-06T12:00:00"
+          }
+        ]
+      }
+    }
+  }

@@ -1,0 +1,111 @@
+body {
+    background-color: #1a1a2e;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.chat-container {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.notes-section {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.chat-message {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.note-item {
+    background: rgba(255, 165, 0, 0.2);
+    border-radius: 8px;
+    margin: 5px 0;
+    padding: 8px;
+}
+
+.timestamp {
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.3;
+}
+body {
+    background-color: #1a1a2e;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.chat-container, .notes-section, .visits-section, .profile-section {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 20px;
+}
+
+.chat-message {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.note-item {
+    background: rgba(255, 165, 0, 0.2);
+    border-radius: 8px;
+    margin: 5px 0;
+    padding: 8px;
+}
+
+.timestamp {
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.user-profile {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.inventory-section {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+#tags-input {
+    margin-top: 10px;
+}
+
+.profile-edit-btn {
+    float: right;
+    padding: 2px 8px;
+    font-size: 0.8em;
+}
