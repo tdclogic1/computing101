@@ -109,6 +109,32 @@ WILL STROUD
             ]
         },
  {
+            "name": "Sampson Plumm",
+            "backstory":"Sampson grew up in a small town where he was considered a genius from an early age. Known for his ability to crack puzzles, ciphers, and riddles, he was dubbed the "Young Sherlock" by his peers. However, despite his sharp intellect, Sampson has always been a bit of a dreamer—more drawn to studying human nature than working in an office. After taking on a few minor cases in his early twenties, he quickly realized he was cut out for private detective work. While he’s still young, Sampson has a reputation for being refreshingly unpretentious—often outsmarting people who underestimate him because of his youthful, softer appearance."
+            "details": {
+                "Occupation": "Student(Senior)" 
+                "Appearance": "Sampson is a solid 5'11", with a rounded, softer frame that reflects his fondness for good food and relaxation. His face is round, with full cheeks, a slightly double-chinned smile, and a thick neck that looks almost perpetually at ease. His skin is a warm, caramel tone, and his hair, now styled in a short, curly mop of deep purple, contrasts sharply with his brilliant violet eyes, which have an almost hypnotic gleam when he's solving a puzzle. He’s often seen wearing deep purple tunics, oversized jackets, and loose pants, making him look like a little bit of a fashion rebel. His outfit is always intentionally mismatched, like he doesn’t take himself too seriously—but it's all part of his charm. He wears a massive, purple silk belt with a large buckle shaped like a magnifying glass."
+            },
+            "clues": [
+                {
+                    "keyword": "mission",
+                    "response": "Mission, eh? Sounds like someone’s trying to get me all serious and 'professional' on this. But hey, if it involves a mystery and a good snack, then consider me in. I’ll figure it out, mark my words—just give me a minute and a couple of chocolate bars. A man’s gotta think, right?"
+                },
+                {
+                    "keyword": "danger",
+                    "response": "Danger? Pfft, danger's just another word for 'situation that could use a little more thought and a lot more snacks.' You can’t rush these things. If it's dangerous, then it’s probably a little more fun, eh? But no worries, I’ve got this—just make sure the snacks are within arm’s reach, and we’ll be just fine."
+                },
+                {
+                    "keyword": "secrets",
+                    "response": "Secrets, huh? Well, everyone’s got ‘em, don’t they? It’s just a matter of figuring out who’s hiding what—and why. Me, I’m more of a 'let’s share a snack and swap stories' kinda guy, but sometimes, well... sometimes the secret’s in the details. I can usually spot 'em a mile away. Just gotta follow the crumbs... or the crumbs of truth. Everything’s got a trail, you just have to know where to look. But remember—secrets have a funny way of spilling out when you least expect it."
+                },
+                {
+                    "keyword": "who are you",
+                    "response": "Who am I? Well, that’s a loaded question, my friend! I’m Sampson Plumm—detective extraordinaire, snack enthusiast, and all-around expert in figuring out the things most people overlook. I solve mysteries, uncover secrets, and occasionally indulge in a good nap. You’ll find me wherever there’s a puzzle to crack and a purple treat to snack on. Nice to meet you, by the way!"
+                }
+            ]
+        },
+ {
             "name": "",
             "backstory":""
             "details": {
