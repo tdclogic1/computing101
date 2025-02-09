@@ -1,0 +1,90 @@
+{
+    "links": [
+      {
+        "title": "REV Hardware Client Installation",
+        "url": "https://docs.revrobotics.com/rev-hardware-client/gs/install",
+        "category": "Setup",
+        "description": "Guide for installing the REV Hardware Client"
+      },
+      {
+        "title": "WPILib Installation Guide",
+        "url": "https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-2/wpilib-setup.html",
+        "category": "Setup",
+        "description": "Instructions for installing WPILib and VS Code"
+      },
+      {
+        "title": "FRC Game Tools",
+        "url": "https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-2/frc-game-tools.html",
+        "category": "Setup",
+        "description": "NI FRC Game Tools installation and setup"
+      }
+    ],
+    "workflow": {
+      "steps": [
+        {
+          "id": 1,
+          "title": "Development Environment Setup",
+          "description": "Install and configure all necessary software tools",
+          "substeps": [
+            "Install WPILib and VS Code",
+            "Install REV Hardware Client",
+            "Install FRC Game Tools",
+            "Configure team number and robot settings"
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Robot Configuration",
+          "description": "Set up the basic robot project and configure hardware",
+          "substeps": [
+            "Create new robot project",
+            "Configure motor controllers",
+            "Set up sensor inputs",
+            "Test basic hardware connections"
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Basic Programming",
+          "description": "Implement fundamental robot controls",
+          "substeps": [
+            "Create drive train subsystem",
+            "Implement basic teleop controls",
+            "Add basic autonomous functions",
+            "Test basic movements"
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Advanced Features",
+          "description": "Add advanced functionality and automation",
+          "substeps": [
+            "Implement PID control",
+            "Add autonomous routines",
+            "Create complex subsystems",
+            "Program game-specific features"
+          ]
+        }
+      ]
+    },
+    "videos": [
+      {
+        "title": "WPILib Setup Tutorial",
+        "description": "Complete guide to setting up WPILib and VS Code",
+        "embedUrl": "https://www.youtube.com/embed/example1",
+        "thumbnailUrl": "thumbnail1.jpg"
+      },
+      {
+        "title": "Basic Robot Programming",
+        "description": "Introduction to FRC robot programming concepts",
+        "embedUrl": "https://www.youtube.com/embed/example2",
+        "thumbnailUrl": "thumbnail2.jpg"
+      },
+      {
+        "title": "Advanced Control Systems",
+        "description": "Deep dive into PID control and motion profiling",
+        "embedUrl": "https://www.youtube.com/embed/example3",
+        "thumbnailUrl": "thumbnail3.jpg"
+      }
+    ]
+  }

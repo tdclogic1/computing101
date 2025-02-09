@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRC Hardware Setup Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        .setup-step {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+        .warning-text {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .success-text {
+            color: #198754;
+            font-weight: bold;
+        }
+        .note-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .checklist-item {
+            margin-bottom: 10px;
+        }
+        .checklist-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .step-number {
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">FRC Programming Guide</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Main Guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="code-examples.html">Code Examples</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Hardware Setup</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <div class="col-md-3">
+                <nav id="sidebar" class="sticky-top" style="top: 20px;">
+                    <div class="nav flex-column nav-pills">
+                        <a class="nav-link active" href="#initial-prep">Initial Preparation</a>
+                        <a class="nav-link" href="#roborio-setup">RoboRIO Setup</a>
+                        <a class="nav-link" href="#pdh-setup">Power Distribution</a>
+                        <a class="nav-link" href="#motor-setup">Motor Controllers</a>
+                        <a class="nav-link" href="#sensor-setup">Sensors & Switches</a>
+                        <a class="nav-link" href="#software-updates">Software Updates</a>
+                        <a class="nav-link" href="#testing">Testing & Verification</a>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Setup Content -->
+            <div class="col-md-9">
+                <!-- Initial Preparation -->
+                <section id="initial-prep" class="mb-5">
+                    <h2>Initial Preparation</h2>
+                    
+                    <div class="setup-step">
+                        <h4><span class="step-number">1</span>Required Tools and Materials</h4>
+                        <div class="checklist-container">
+                            <div class="checklist-item">
+                                <input type="checkbox" id="tool1">
+                                <label for="tool1">Phillips and flathead screwdrivers</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="tool2">
+                                <label for="tool2">Wire strippers and crimpers</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="tool3">
+                                <label for="tool3">Ethernet cable</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="tool4">
+                                <label for="tool4">USB A to B cable</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="tool5">
+                                <label for="tool5">Battery connector and power cables</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="setup-step">
+                        <h4><span class="step-number">2</span>Software Requirements</h4>
+                        <div class="checklist-container">
+                            <div class="checklist-item">
+                                <input type="checkbox" id="software1">
+                                <label for="software1">FRC Game Tools</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="software2">
+                                <label for="software2">REV Hardware Client</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="software3">
+                                <label for="software3">WPILib VS Code</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- RoboRIO Setup -->
+                <section id="roborio-setup" class="mb-5">
+                    <h2>RoboRIO Setup</h2>
+                    
+                    <div class="setup-step">
+                        <h4><span class="step-number">1</span>Initial RoboRIO Configuration</h4>
+                        <ol class="list-group list-group-numbered mb-3">
+                            <li class="list-group-item">Connect the RoboRIO to your computer via USB</li>
+                            <li class="list-group-item">Open the roboRIO Imaging Tool</li>
+                            <li class="list-group-item">Select the latest firmware image</li>
+                            <li class="list-group-item">Enter your team number</li>
+                            <li class="list-group-item">Click "Reformat" and "Install"</li>
+                        </ol>
+                        <div class="note-box">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Reformatting will erase all existing code and configurations!
+                        </div>
+                    </div>
+
+                    <div class="setup-step">
+                        <h4><span class="step-number">2</span>Network Configuration</h4>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Static IP Configuration</h5>
+                                <p>Configure the following network settings:</p>
+                                <ul>
+                                    <li>IP Address: 10.TE.AM.2</li>
+                                    <li>Subnet Mask: 255.255.255.0</li>
+                                    <li>Gateway: 10.TE.AM.1</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Power Distribution Setup -->
+                <section id="pdh-setup" class="mb-5">
+                    <h2>Power Distribution Hub Setup</h2>
+                    
+                    <div class="setup-step">
+                        <h4><span class="step-number">1</span>PDH Installation</h4>
+                        <ol class="list-group list-group-numbered mb-3">
+                            <li class="list-group-item">Mount PDH securely to robot frame</li>
+                            <li class="list-group-item">Connect main power cables from battery</li>
+                            <li class="list-group-item">Connect CAN cable to RoboRIO</li>
+                            <li class="list-group-item">Install 120A main breaker</li>
+                        </ol>
+                    </div>
+
+                    <div class="setup-step">
+                        <h4><span class="step-number">2</span>Power Distribution</h4>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5>Recommended Power Layout:</h5>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Port</th>
+                                            <th>Device</th>
+                                            <th>Breaker Size</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>0-3</td>
+                                            <td>Drive Motors</td>
+                                            <td>40A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4-7</td>
+                                            <td>Mechanism Motors</td>
+                                            <td>30A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8-11</td>
+                                            <td>Small Motors</td>
+                                            <td>20A</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Motor Controller Setup -->
+                <section id="motor-setup" class="mb-5">
+                    <h2>Motor Controller Setup</h2>
+                    
+                    <div class="setup-step">
+                        <h4><span class="step-number">1</span>SPARK MAX Configuration</h4>
+                        <ol class="list-group list-group-numbered mb-3">
+                            <li class="list-group-item">Connect SPARK MAX to USB</li>
+                            <li class="list-group-item">Open REV Hardware Client</li>
+                            <li class="list-group-item">Update firmware if needed</li>
+                            <li class="list-group-item">Set CAN ID (unique for each controller)</li>
+                            <li class="list-group-item">Configure motor type (NEO, NEO 550, etc.)</li>
+                        </ol>
+                    </div>
+
+                    <div class="setup-step">
+                        <h4><span class="step-number">2</span>Motor Connection</h4>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5>Connection Checklist:</h5>
+                                <div class="checklist-container">
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="motor1">
+                                        <label for="motor1">Verify motor polarity</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="motor2">
+                                        <label for="motor2">Secure all power connections</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="motor3">
+                                        <label for="motor3">Connect encoder cables (if applicable)</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sensor Setup -->
+                <section id="sensor-setup" class="mb-5">
+                    <h2>Sensors & Switches Setup</h2>
+                    
+                    <div class="setup-step">
+                        <h4><span class="step-number">1</span>Limit Switch Installation</h4>
+                        <ol class="list-group list-group-numbered mb-3">
+                            <li class="list-group-item">Mount switches at mechanism limits</li>
+                            <li class="list-group-item">Connect to RoboRIO DIO ports</li>
+                            <li class="list-group-item">Test switch activation</li>
+                        </ol>
+                    </div>
+
+                    <div class="setup-step">
+                        <h4><span class="step-number">2</span>Encoder Setup</h4>
+                        <div class="note-box">
+                            <p><strong>Note:</strong> For SPARK MAX controllers, encoders are typically integrated with NEO motors.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Software Updates -->
+                <section id="software-updates" class="mb-5">
+                    <h2>Software Updates</h2>
+                    
+                    <div class="setup-step">
+                        <h4><span class="step-number">1</span>Update Sequence</h4>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5>Update Order:</h5>
+                                <ol>
+                                    <li>RoboRIO firmware</li>
+                                    <li>Radio firmware</li>
+                                    <li>SPARK MAX firmware</li>
+                                    <li>FRC Game Tools</li>
+                                    <li>WPILib</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                [Previous content remains the same until the Testing section...]
+
+                <!-- Testing Section -->
+                <section id="testing" class="mb-5">
+                    <h2>Testing & Verification</h2>
+                    
+                    <div class="setup-step">
+                        <h4><span class="step-number">1</span>System Verification</h4>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5>Test Sequence:</h5>
+                                <div class="checklist-container">
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="test1">
+                                        <label for="test1">Power up system check</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="test2">
+                                        <label for="test2">Communication verification</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="test3">
+                                        <label for="test3">Motor movement test</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="test4">
+                                        <label for="test4">Sensor operation verification</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5>Detailed Test Procedures</h5>
+                                
+                                <h6 class="mt-3">1. Power Up System Check</h6>
+                                <ul class="list-group mb-3">
+                                    <li class="list-group-item">
+                                        <i class="fas fa-battery-full text-success me-2"></i>
+                                        Verify battery voltage (>12V)
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-plug text-success me-2"></i>
+                                        Check main breaker connection
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-lightbulb text-success me-2"></i>
+                                        Confirm RoboRIO power LED
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-microchip text-success me-2"></i>
+                                        Verify PDH status lights
+                                    </li>
+                                </ul>
+
+                                <h6 class="mt-3">2. Communication Verification</h6>
+                                <ul class="list-group mb-3">
+                                    <li class="list-group-item">
+                                        <i class="fas fa-wifi text-success me-2"></i>
+                                        Test radio connectivity
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-network-wired text-success me-2"></i>
+                                        Verify CAN bus communication
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-laptop-code text-success me-2"></i>
+                                        Check Driver Station connection
+                                    </li>
+                                </ul>
+
+                                <h6 class="mt-3">3. Motor Movement Test</h6>
+                                <ul class="list-group mb-3">
+                                    <li class="list-group-item">
+                                        <i class="fas fa-cog text-success me-2"></i>
+                                        Test each motor individually
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-sync text-success me-2"></i>
+                                        Verify correct direction
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-tachometer-alt text-success me-2"></i>
+                                        Check encoder feedback
+                                    </li>
+                                </ul>
+
+                                <h6 class="mt-3">4. Sensor Operation</h6>
+                                <ul class="list-group mb-3">
+                                    <li class="list-group-item">
+                                        <i class="fas fa-toggle-on text-success me-2"></i>
+                                        Test limit switches
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-compass text-success me-2"></i>
+                                        Verify gyro initialization
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-ruler text-success me-2"></i>
+                                        Check distance sensor readings
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="setup-step">
+                        <h4><span class="step-number">2</span>Safety Checks</h4>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5>Safety Verification Checklist</h5>
+                                <div class="checklist-container">
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="safety1">
+                                        <label for="safety1">All wire connections secure and properly insulated</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="safety2">
+                                        <label for="safety2">Breakers properly sized and installed</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="safety3">
+                                        <label for="safety3">Emergency stop function verified</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="safety4">
+                                        <label for="safety4">All mechanical components properly secured</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="safety5">
+                                        <label for="safety5">No sharp edges or pinch points</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="setup-step">
+                        <h4><span class="step-number">3</span>Final Documentation</h4>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5>Documentation Checklist</h5>
+                                <div class="checklist-container">
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="doc1">
+                                        <label for="doc1">Record all CAN IDs and device configurations</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="doc2">
+                                        <label for="doc2">Document wiring diagram</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="doc3">
+                                        <label for="doc3">Save software configurations</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="doc4">
+                                        <label for="doc4">Create troubleshooting guide</label>
+                                    </div>
+                                </div>
+
+                                <div class="note-box mt-3">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    Keep all documentation updated and accessible to team members
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>FRC Hardware Setup Guide</h5>
+                    <p>Complete guide for setting up and testing FRC robot hardware.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>Created for FRC Teams</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Implement smooth scrolling for sidebar navigation
+        document.querySelectorAll('#sidebar .nav-link').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Save checkbox states to localStorage
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            const savedState = localStorage.getItem(checkbox.id);
+            if (savedState === 'true') {
+                checkbox.checked = true;
+            }
+
+            checkbox.addEventListener('change', () => {
+                localStorage.setItem(checkbox.id, checkbox.checked);
+            });
+        });
+    </script>
+</body>
+</html>
