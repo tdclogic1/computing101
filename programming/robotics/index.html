@@ -46,6 +46,31 @@
     </nav>
 
     <!-- Main Content -->
+
+    <div class="download-container">
+        <!-- Direct Download Link -->
+        <a href="/ASSETS/FILES/ni-frc-2025-game-tools_25.0_online.exe" 
+           class="download-button" 
+           download="/ASSETS/FILES/ni-frc-2025-game-tools_25.0_online.exe"
+           onclick="showProgress(event)">
+            <!-- Download Icon (SVG) -->
+            
+            Download File
+        </a>
+        <a href="/ASSETS/FILES/" 
+        class="download-button" 
+        download="/ASSETS/FILES/ReflectDLHF.exe"
+        onclick="showProgress(event)">
+         <!-- Download Icon (SVG) -->
+         
+         Download File
+     </a>
+        <!-- Progress Bar -->
+        <div class="progress-bar"></div>
+        
+        <!-- File Information -->
+        
+    </div>
     <div class="container mt-4">
         <!-- Resources Section -->
         <section id="resources" class="mb-5">
@@ -151,6 +176,10 @@
                 });
             })
             .catch(error => console.error('Error loading data:', error));
+
+
+
     </script>
+    <script src="download.js"></script>
 </body>
 </html>
