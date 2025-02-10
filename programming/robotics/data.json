@@ -36,6 +36,7 @@
           "id": 2,
           "title": "Robot Configuration",
           "description": "Set up the basic robot project and configure hardware",
+          "url": "hardware.html",
           "substeps": [
             "Create new robot project",
             "Configure motor controllers",
@@ -46,6 +47,7 @@
         {
           "id": 3,
           "title": "Basic Programming",
+          "url": "prog.html",
           "description": "Implement fundamental robot controls",
           "substeps": [
             "Create drive train subsystem",

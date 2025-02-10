@@ -142,21 +142,22 @@
 
                 // Populate Workflow
                 const workflowContainer = document.querySelector('.workflow-container');
-                data.workflow.steps.forEach(step => {
-                    workflowContainer.innerHTML += `
-                        <div class="workflow-step">
-                            <h4>${step.id}. ${step.title}</h4>
-                            <p>${step.description}</p>
-                            <ul class="list-unstyled">
-                                ${step.substeps.map(substep => `
-                                    <li class="substep">
-                                        <i class="fas fa-angle-right me-2"></i>${substep}
-                                    </li>
-                                `).join('')}
-                            </ul>
-                        </div>
-                    `;
-                });
+data.workflow.steps.forEach(step => {
+    workflowContainer.innerHTML += `
+        <div class="workflow-step">
+            <h4>${step.id}. ${step.title}</h4>
+            <p>${step.description}</p>
+            ${step.url ? `<p><a href="${step.url}">Additional Infornation</a></p>` : ''}
+            <ul class="list-unstyled">
+                ${step.substeps.map(substep => `
+                    <li class="substep">
+                        <i class="fas fa-angle-right me-2"></i>${substep}
+                    </li>
+                `).join('')}
+            </ul>
+        </div>
+    `;
+});
 
                 // Populate Videos
                 const videoContainer = document.getElementById('videoContainer');
