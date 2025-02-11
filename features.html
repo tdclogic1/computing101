@@ -10,8 +10,6 @@
 </head>
 <body>
     <h1>Web Game</h1>
-
-    <!-- Authentication Form -->
     <div id="auth-section">
         <h2>Sign In / Sign Up</h2>
         <input type="email" id="email" placeholder="Enter email">
@@ -21,23 +19,21 @@
         <button onclick="signOut()">Sign Out</button>
     </div>
 
-    <!-- Game and Progress Section -->
     <div id="game-section" style="display: none;">
         <h2>Game</h2>
-        <div>
-            <p>Level: <span id="level">1</span></p>
-            <p>Score: <span id="score">0</span></p>
-            <button onclick="increaseScore()">Increase Score</button>
-            <button onclick="levelUp()">Level Up</button>
-            <button onclick="saveProgress()">Save Progress</button>
-            <button onclick="loadProgress()">Load Progress</button>
-        </div>
+        <p>Level: <span id="level">1</span></p>
+        <p>Score: <span id="score">0</span></p>
+        <p>Stones: <span id="stones">0</span></p>
+        <p>Stone Pieces: <span id="stonePieces">0</span></p>
+        <button onclick="increaseScore()">Increase Score</button>
+        <button onclick="levelUp()">Level Up</button>
+        <button onclick="saveProgress()">Save Progress</button>
+        <button onclick="loadProgress()">Load Progress</button>
         <h2>Leaderboard</h2>
         <ul id="leaderboard"></ul>
     </div>
 
     <script>
-        // Firebase Config (Replace with your Firebase project credentials)
         const firebaseConfig = {
             apiKey: "YOUR_API_KEY",
             authDomain: "YOUR_AUTH_DOMAIN",
@@ -46,287 +42,56 @@
             messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
             appId: "YOUR_APP_ID"
         };
-
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
+        firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
         const db = firebase.firestore();
 
-        // Authentication - Sign Up
+        let userProgress = { level: 1, score: 0, stones: 0, stonePieces: 0 };
+
         function signUp() {
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
             auth.createUserWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    alert("User signed up successfully!");
-                })
-                .catch((error) => {
-                    alert("Error signing up: " + error.message);
-                });
+                .then(() => alert("User signed up!"))
+                .catch(error => alert("Error: " + error.message));
         }
 
-        // Authentication - Sign In
         function signIn() {
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
             auth.signInWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    alert("User signed in successfully!");
+                .then(() => {
+                    alert("Signed in!");
                     document.getElementById("auth-section").style.display = 'none';
                     document.getElementById("game-section").style.display = 'block';
-                    loadLeaderboard();
+                    loadProgress();
                 })
-                .catch((error) => {
-                    alert("Error signing in: " + error.message);
-                });
+                .catch(error => alert("Error: " + error.message));
         }
 
-        // Authentication - Sign Out
         function signOut() {
-            auth.signOut()
-                .then(() => {
-                    alert("User signed out successfully!");
-                    document.getElementById("auth-section").style.display = 'block';
-                    document.getElementById("game-section").style.display = 'none';
-                })
-                .catch((error) => {
-                    alert("Error signing out: " + error.message);
-                });
-        }
-
-        // Game Progress - Increase Score
-        function increaseScore() {
-            let score = parseInt(document.getElementById("score").innerText);
-            score += 10;
-            document.getElementById("score").innerText = score;
-        }
-
-        // Game Progress - Level Up
-        function levelUp() {
-            let level = parseInt(document.getElementById("level").innerText);
-            level += 1;
-            document.getElementById("level").innerText = level;
-        }
-
-        // Save Progress to Firestore
-        function saveProgress() {
-            const user = auth.currentUser;
-            if (!user) {
-                alert("Please sign in first!");
-                return;
-            }
-
-            const level = document.getElementById("level").innerText;
-            const score = document.getElementById("score").innerText;
-
-            db.collection("gameProgress").doc(user.uid).set({
-                level: parseInt(level),
-                score: parseInt(score),
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            }).then(() => {
-                alert("Progress saved!");
-                saveLeaderboard(user.email, score);
-            }).catch((error) => {
-                alert("Error saving progress: " + error.message);
-            });
-        }
-
-        // Load Progress from Firestore
-        function loadProgress() {
-            const user = auth.currentUser;
-            if (!user) {
-                alert("Please sign in first!");
-                return;
-            }
-
-            db.collection("gameProgress").doc(user.uid).get().then((doc) => {
-                if (doc.exists) {
-                    const data = doc.data();
-                    document.getElementById("level").innerText = data.level;
-                    document.getElementById("score").innerText = data.score;
-                    alert("Progress loaded!");
-                } else {
-                    alert("No saved progress found.");
-                }
-            }).catch((error) => {
-                alert("Error loading progress: " + error.message);
-            });
-        }
-
-        // Save Score to Leaderboard
-        function saveLeaderboard(userEmail, userScore) {
-            db.collection("leaderboard").add({
-                email: userEmail,
-                score: parseInt(userScore),
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            }).then(() => {
-                loadLeaderboard();
-            }).catch((error) => {
-                alert("Error saving leaderboard: " + error.message);
-            });
-        }
-
-        // Load Leaderboard from Firestore
-        function loadLeaderboard() {
-            db.collection("leaderboard").orderBy("score", "desc").limit(10).get()
-                .then((querySnapshot) => {
-                    const leaderboard = document.getElementById("leaderboard");
-                    leaderboard.innerHTML = "";
-                    querySnapshot.forEach((doc) => {
-                        const data = doc.data();
-                        const li = document.createElement("li");
-                        li.textContent = `${data.email} - Score: ${data.score}`;
-                        leaderboard.appendChild(li);
-                    });
-                }).catch((error) => {
-                    alert("Error loading leaderboard: " + error.message);
-                });
-        }
-
-        // Firebase Auth State Listener (Automatically signs in users who are already authenticated)
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                document.getElementById("auth-section").style.display = 'none';
-                document.getElementById("game-section").style.display = 'block';
-                loadLeaderboard();
-            } else {
+            auth.signOut().then(() => {
+                alert("Signed out!");
                 document.getElementById("auth-section").style.display = 'block';
                 document.getElementById("game-section").style.display = 'none';
-            }
-        });
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Game with Extended Features</title>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging.js"></script>
-    <style>
-        /* Add your custom styles here */
-    </style>
-</head>
-<body>
-    <h1>Web Game with Extended Features</h1>
-
-    <!-- Authentication Section -->
-    <div id="auth-section">
-        <h2>Sign In / Sign Up</h2>
-        <input type="email" id="email" placeholder="Enter email">
-        <input type="password" id="password" placeholder="Enter password">
-        <button onclick="signUp()">Sign Up</button>
-        <button onclick="signIn()">Sign In</button>
-        <button onclick="signOut()">Sign Out</button>
-    </div>
-
-    <!-- Game Section -->
-    <div id="game-section" style="display: none;">
-        <h2>Game</h2>
-        <div>
-            <p>Level: <span id="level">1</span></p>
-            <p>Score: <span id="score">0</span></p>
-            <p>Currency: <span id="currency">0</span></p>
-            <button onclick="increaseScore()">Increase Score</button>
-            <button onclick="levelUp()">Level Up</button>
-            <button onclick="buyPowerUp()">Buy Power-up</button>
-            <button onclick="saveProgress()">Save Progress</button>
-            <button onclick="loadProgress()">Load Progress</button>
-        </div>
-        
-        <!-- Achievements and Leaderboard -->
-        <h3>Achievements</h3>
-        <ul id="achievements"></ul>
-        
-        <h3>Leaderboard</h3>
-        <div>
-            <h4>All-time Leaderboard:</h4>
-            <ul id="leaderboard-all-time"></ul>
-        </div>
-        <div>
-            <h4>Weekly Leaderboard:</h4>
-            <ul id="leaderboard-weekly"></ul>
-        </div>
-        <div>
-            <h4>Daily Leaderboard:</h4>
-            <ul id="leaderboard-daily"></ul>
-        </div>
-
-        <h2>Daily Challenge</h2>
-        <p id="daily-challenge"></p>
-        <button onclick="completeDailyChallenge()">Complete Challenge</button>
-    </div>
-
-    <script>
-        // Firebase Config (Replace with your Firebase project credentials)
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
-
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-        const db = firebase.firestore();
-        const messaging = firebase.messaging();
-
-        let userProgress = { level: 1, score: 0, currency: 0 };
-        let dailyChallengeCompleted = false;
-
-        // Sign up, sign in, sign out
-        function signUp() {
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            auth.createUserWithEmailAndPassword(email, password)
-                .then(() => {
-                    alert("User signed up successfully!");
-                })
-                .catch((error) => {
-                    alert("Error signing up: " + error.message);
-                });
+            });
         }
 
-        function signIn() {
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            auth.signInWithEmailAndPassword(email, password)
-                .then(() => {
-                    alert("User signed in successfully!");
-                    document.getElementById("auth-section").style.display = 'none';
-                    document.getElementById("game-section").style.display = 'block';
-                    loadLeaderboard();
-                    loadAchievements();
-                    checkDailyChallenge();
-                })
-                .catch((error) => {
-                    alert("Error signing in: " + error.message);
-                });
-        }
-
-        function signOut() {
-            auth.signOut()
-                .then(() => {
-                    alert("User signed out successfully!");
-                    document.getElementById("auth-section").style.display = 'block';
-                    document.getElementById("game-section").style.display = 'none';
-                })
-                .catch((error) => {
-                    alert("Error signing out: " + error.message);
-                });
-        }
-
-        // Game Progress and Mechanics
         function increaseScore() {
             userProgress.score += 10;
             document.getElementById("score").innerText = userProgress.score;
+            
+            if (Math.random() < 0.5) { // 50% drop rate for skills
+                userProgress.stonePieces += 1;
+                document.getElementById("stonePieces").innerText = userProgress.stonePieces;
+            }
+            
+            if (userProgress.stonePieces >= 100) {
+                userProgress.stones += 1;
+                userProgress.stonePieces -= 100;
+                document.getElementById("stones").innerText = userProgress.stones;
+                document.getElementById("stonePieces").innerText = userProgress.stonePieces;
+            }
         }
 
         function levelUp() {
@@ -334,118 +99,49 @@
             document.getElementById("level").innerText = userProgress.level;
         }
 
-        // Buy Power-ups with currency
-        function buyPowerUp() {
-            if (userProgress.currency >= 50) {
-                userProgress.currency -= 50;
-                alert("Power-up bought!");
-                document.getElementById("currency").innerText = userProgress.currency;
-            } else {
-                alert("Not enough currency!");
-            }
-        }
-
-        // Save and Load Progress
         function saveProgress() {
             const user = auth.currentUser;
-            if (user) {
-                db.collection("gameProgress").doc(user.uid).set({
-                    level: userProgress.level,
-                    score: userProgress.score,
-                    currency: userProgress.currency,
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                }).then(() => {
-                    alert("Progress saved!");
-                }).catch((error) => {
-                    alert("Error saving progress: " + error.message);
-                });
-            } else {
-                alert("Please sign in to save progress.");
-            }
+            if (!user) return alert("Sign in first!");
+            db.collection("gameProgress").doc(user.uid).set(userProgress)
+                .then(() => alert("Progress saved!"))
+                .catch(error => alert("Error: " + error.message));
         }
 
         function loadProgress() {
             const user = auth.currentUser;
-            if (user) {
-                db.collection("gameProgress").doc(user.uid).get().then((doc) => {
+            if (!user) return;
+            db.collection("gameProgress").doc(user.uid).get()
+                .then(doc => {
                     if (doc.exists) {
                         userProgress = doc.data();
                         document.getElementById("level").innerText = userProgress.level;
                         document.getElementById("score").innerText = userProgress.score;
-                        document.getElementById("currency").innerText = userProgress.currency;
-                    } else {
-                        alert("No saved progress found.");
+                        document.getElementById("stones").innerText = userProgress.stones;
+                        document.getElementById("stonePieces").innerText = userProgress.stonePieces;
                     }
-                }).catch((error) => {
-                    alert("Error loading progress: " + error.message);
                 });
-            } else {
-                alert("Please sign in to load progress.");
-            }
         }
 
-        // Achievements System
-        function loadAchievements() {
-            const achievements = document.getElementById("achievements");
-            if (userProgress.score >= 100) {
-                achievements.innerHTML = "<li>Score 100: Achievement Unlocked!</li>";
-            }
-        }
-
-        // Leaderboard System
         function loadLeaderboard() {
-            loadLeaderboardByTime('all-time', 'leaderboard-all-time');
-            loadLeaderboardByTime('weekly', 'leaderboard-weekly');
-            loadLeaderboardByTime('daily', 'leaderboard-daily');
-        }
-
-        function loadLeaderboardByTime(timeframe, elementId) {
-            db.collection("leaderboard")
-                .where("timeframe", "==", timeframe)
-                .orderBy("score", "desc")
-                .limit(10)
-                .get()
-                .then((querySnapshot) => {
-                    const leaderboard = document.getElementById(elementId);
+            db.collection("leaderboard").orderBy("score", "desc").limit(10).get()
+                .then(querySnapshot => {
+                    const leaderboard = document.getElementById("leaderboard");
                     leaderboard.innerHTML = "";
-                    querySnapshot.forEach((doc) => {
+                    querySnapshot.forEach(doc => {
                         const data = doc.data();
                         const li = document.createElement("li");
                         li.textContent = `${data.email} - Score: ${data.score}`;
                         leaderboard.appendChild(li);
                     });
-                }).catch((error) => {
-                    alert("Error loading leaderboard: " + error.message);
                 });
         }
 
-        // Daily Challenge Feature
-        function checkDailyChallenge() {
-            if (!dailyChallengeCompleted) {
-                document.getElementById("daily-challenge").innerText = "Complete this challenge: Score 50 points today!";
-            }
-        }
-
-        function completeDailyChallenge() {
-            if (userProgress.score >= 50) {
-                alert("Daily challenge completed! You've earned bonus currency.");
-                userProgress.currency += 20;
-                document.getElementById("currency").innerText = userProgress.currency;
-                dailyChallengeCompleted = true;
-                checkDailyChallenge();
-            } else {
-                alert("Complete the challenge first (Score 50 points).");
-            }
-        }
-
-        // Firebase Auth State Listener
-        auth.onAuthStateChanged((user) => {
+        auth.onAuthStateChanged(user => {
             if (user) {
                 document.getElementById("auth-section").style.display = 'none';
                 document.getElementById("game-section").style.display = 'block';
+                loadProgress();
                 loadLeaderboard();
-                loadAchievements();
-                checkDailyChallenge();
             } else {
                 document.getElementById("auth-section").style.display = 'block';
                 document.getElementById("game-section").style.display = 'none';
