@@ -144,6 +144,32 @@ WILL STROUD
             "clues": [
                 {
                     "keyword": "mission",
+                    "response": "Mission... it’s not just a word, it’s the reason behind everything we do. Whether it’s solving a problem or just trying to get through the day, there’s always an objective. But sometimes, the real mission isn’t clear-cut. It’s not always about achieving success. Sometimes it’s about understanding the people involved, finding the hidden details. The real challenge? Balancing the drive to succeed with the impact you leave on others along the way."
+                },
+                {
+                    "keyword": "danger",
+                    "response": "Danger is a tricky thing. Most people only see it as a threat, something to avoid. But I see it differently. It’s a signal, a clue that something’s off—something needs to be solved or understood. The real danger isn’t just physical; it’s the risk of missing the signs, of ignoring the details that could’ve kept you safe or, even more importantly, kept someone else safe."
+                },
+                {
+                    "keyword": "secrets",
+                    "response": "Me? I’m good at uncovering them. Not just because I’m good at reading people, but because secrets always leave traces. The trick is knowing what you’re willing to find, and whether you really want to know the truth once it’s out."
+                },
+                {
+                    "keyword": "who are you",
+                    "response": "Who am I? My name’s Copper Mitchell. I guess you could say I’m someone who sees things others don’t, reads between the lines and catches the details that get overlooked. I’m not just some puzzle solver—there’s more to me than that. But, I suppose that’s what I’ve been defined by. I’ve always had this way of figuring people out, understanding what drives them, even when they don’t get it themselves."
+                }
+            ]
+        },
+ {
+            "name": "",
+            "backstory":""
+            "details": {
+                "Occupation": "" 
+                "Appearance": ""
+            },
+            "clues": [
+                {
+                    "keyword": "mission",
                     "response": ""
                 },
                 {
